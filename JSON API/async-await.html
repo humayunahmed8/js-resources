@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async and Await</title>
+</head>
+<body>
+
+    <ul id="listContainer">
+
+    </ul>
+
+    <script>
+
+         
+        // Previous Example
+
+        // fetch('https://jsonplaceholder.typicode.com/users')
+        // .then(response => response.json())
+        // .then(data => displayUserData(data))
+    
+
+
+        // Updated Example 
+        async function loadData() {
+            const response = await fetch('https://jsonplaceholder.typicode.com/users');
+            const data = await response.json();
+            //displayUserData(data);
+            return data;
+        }
+
+        loadData().then(data => {
+            displayUserData(data);
+        })
+        
+        
+
+        // Function for Display JSON Data into Frontend 
+        function displayUserData(data) {
+            //console.log(data);
+
+            // const userName = data.map(x => x.name);
+            // console.log(userName);
+
+            const listContainer = document.getElementById('listContainer');
+            for (let i = 0; i < data.length; i++) {
+                const personName = data[i];
+                const createElement = document.createElement('li');
+                createElement.innerText = personName.name;
+                listContainer.appendChild(createElement);
+            }
+        }
+    </script>
+    
+</body>
+</html>

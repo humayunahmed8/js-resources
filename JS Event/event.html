@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Event</title>
+
+    <style>
+        li{
+            transition: 0.3s;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Print Plain Text inside HTML, using onclick Event with innerHTML -->
+    <h1 id="clickMe"></h1>
+    <button type="button" onclick="document.getElementById('clickMe').innerHTML = 'Hello Ramim'">Click Me</button>
+
+    <ul id="menu">
+        <li class="items">Home</li>
+        <li class="items">About</li>
+        <li class="items">Price</li>
+        <li class="items">Gallery</li>
+        <li class="items">App</li>
+    </ul>
+
+    <button id="lastItem">Learn More</button>
+ 
+    <h2 id="todayDate"></h2>
+    <button type="button" onclick="document.getElementById('todayDate').innerHTML = Date();">Click for Date</button>
+
+    <script>
+
+        var selectMenu = document.getElementById('lastItem');
+
+        selectMenu.addEventListener('mouseenter', function(){
+            var selector = document.querySelectorAll('.items');
+            for (let i = 0; i < selector.length; i++) {
+                const element = selector[i];
+                element.style.transform = 'rotate(7deg)';
+            }
+        })
+
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM: Parent Child Relation</title>
+</head>
+<body>
+    
+    <div class="main" id="main">
+        <article class="article-1">
+            <ul id="nav">
+                <li class="item"><a href="#">Home</a></li>
+                <li class="item"><a href="#">About</a></li>
+                <li class="item"><a href="#">Goal</a></li>
+                <li class="item"><a href="#">Mission</a></li>
+                <li class="item"><a href="#">Pricing</a></li>
+                <li class="item items"><a href="#">App</a></li>
+            </ul>
+        </article>
+
+        <article class="article-2">
+            <ul id="navs">
+                <li class="item"><a href="#">Home</a></li>
+                <li class="item"><a href="#">About</a></li>
+                <li class="item"><a href="#">Goal</a></li>
+                <li class="item"><a href="#">Mission</a></li>
+                <li class="item"><a href="#">Pricing</a></li>
+                <li class="item"><a href="#">App</a></li>
+            </ul>
+        </article>
+    </div>
+
+    <script>
+        // const parent = document.querySelector('#nav'); 
+        // const childrens = parent.childrens; // nav আইডির child গুলোকে ধরা হচ্ছে। 
+        // console.log(childrens);
+        //console.log(childrens[1]); // 1 নম্বর ইন্ডেক্স child কে ধরা হয়েছে। 
+        
+        // const grandParent = document.querySelector('#nav');
+        // const parent = grandParent.children;
+        // const children = parent[1].children;
+        // console.log(children);
+
+        // Descendant  
+        // const grandParent = document.querySelector('#nav');
+        // const children = grandParent.querySelectorAll('li');
+        // console.log(children);
+
+        //Parent Element (উপরের দিকে যাওয়ার জন্য) 
+
+        // const children = document.querySelector('#nav');
+        // const parent = children.parentElement;
+        // console.log(parent);
+
+
+        // একবারে নিচের একটা এলিমেন্টের প্যারেন্টকে ধরার অন্য। (li এর উপরে একটা ডিভ, তার উপরের মেইন ডিভকে ধরা হয়েছে)
+        const children = document.querySelector('.items');
+        const grandParent = children.closest('.main');
+        console.log(grandParent);
+
+        //পাশাপাশি বা ২য় এলিমেন্টকে ধরার জন্য, (article-2 কে ধরা হয়েছে)
+        // const childrenOne = document.querySelector('.article-1');
+        // const childrenTwo = childrenOne.nextElementSibling;
+        // childrenTwo.style.backgroundColor = 'red';
+        
+        // console.log(childrenTwo);
+
+        //২য় এলিমেন্ট থেকে ১ম এলিমেন্টে যাওয়ার জন্য, (article-1 কে ধরা হয়েছে)
+        const childrenTwo = document.querySelector('.article-1').nextElementSibling;
+        const childrenOne = childrenTwo.previousElementSibling;
+        //childrenTwo.style.backgroundColor = 'red';
+        
+        console.log(childrenOne);
+
+        const divElement = document.createElement('div');
+        divElement.className = 'red';
+        divElement.setAttribute('id', 'blue');
+        divElement.setAttribute('title', 'This is new Element');
+        
+
+        const container = document.querySelector('.article-2');
+        // const navElement = container.querySelector('#navs');
+        // container.insertBefore(divElement, navElement);
+        
+        container.appendChild(divElement); // সবারে শেষে যুক্ত হবে
+        container.append('Text') // append দিয়ে টেক্সট যুক্ত হবে। 
+
+        //const a = container.appendChild(divElement); // appendChild পুরো এলিমেন্টকে রিটার্ন করে/ 
+        //const b = container.append(divElement); // এটি কোন এলিমেন্ট রিটার্ন করেনা। 
+        // const b = container.append(divElement, document.createElement('p'), 'Hello Wordld'); // একসাথে তিনটি জিনিস ও দেয়া যাবে। তবে সেটি আবার appendChild এ দেয়া যাবেনা। 
+
+        //console.log(b);
+
+
+    </script> 
+</body>
+</html>

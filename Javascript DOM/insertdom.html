@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insert DOM</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        article{
+            border: 1px solid red;
+            padding: 15px;
+            margin: 15px;
+        }
+    </style>
+</head>
+<body>
+    
+    <article id="first-article">
+        <h3>Article-1</h3>
+        <p class="author-1">Author-1</p>
+        <p class="description">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tenetur recusandae alias ipsa quis saepe fuga amet rerum provident, molestias autem.</p>
+    </article>
+    <article class="special">
+        <h3>Article-2</h3>
+        <p class="author-2">Author-2</p>
+        <p class="description">Delectus placeat eum, labore nulla exercitationem aut impedit, recusandae autem culpa ipsum officiis illo nisi cum distinctio necessitatibus, nostrum perspiciatis.</p>
+    </article>
+    <article class="special">
+        <h3>Article-3</h3>
+        <p class="author-3">Author-3</p>
+        <p class="description">Delectus numquam repellendus ab ratione nostrum, aperiam libero deleniti iusto magnam maiores temporibus unde! Beatae assumenda exercitationem reiciendis ab itaque.</p>
+    </article>
+
+    <article>
+        <h3>Menu Item</h3>
+        <ul id="menuList">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">App</a></li>
+            <li><a href="#">Services</a></li>
+        </ul>
+    </article>
+
+    <script>
+
+        // Add new element inside javascript 
+        const article = document.getElementById('first-article');
+        const newParagraph = document.createElement('p');
+        newParagraph.style.backgroundColor = 'red';
+        newParagraph.style.padding = '15px';
+        newParagraph.style.color = '#fff';
+        newParagraph.style.marginTop = '15px';
+        newParagraph.innerHTML = 'This is added by Javascript';
+        article.appendChild(newParagraph);
+
+        // Check Child Nodes
+
+        var childNodes = document.getElementById('menuList').childNodes;
+        console.log(childNodes);
+
+        var parentNodes = document.getElementById('menuList').parentNode;
+        console.log(parentNodes);
+
+        // Add One More Menu
+
+        const ul = document.getElementById('menuList');
+        const li = document.createElement('li');
+        li.innerHTML = 'beta';
+        ul.appendChild(li);
+
+
+        // What is the difference between properties and attributes in HTML?
+        // Ref :https://stackoverflow.com/questions/6003819/what-is-the-difference-between-properties-and-attributes-in-html#:~:text=For%20a%20given%20DOM%20node,attributes%20property%20of%20that%20object.&text=The%20type%20property%20is%20a,property%20writes%20the%20attribute%20value.
+
+    </script>
+
+</body>
+</html>

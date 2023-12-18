@@ -1,0 +1,10 @@
+// DOM Explanation 1
+// Document হচ্ছে ধরি HTML.
+// Object: আর যখন এই Document ব্রাউজার পায়। সেটা সে অবজেক্ট হিসেবে পায়। অর্থাৎ, ব্রাউজার চিনে অবজেক্ট কে। 
+// Model: HTML DOM Tree (অর্থাৎ কিসের ভিতর কি আছে, এবং সেটা কিভাবে আছে) (Ref: https://www.w3schools.com/js/js_htmldom.asp)
+        
+// DOM Explanation 2
+// When a web page is loaded, the browser creates a Document Object Model of the page.
+// ওয়েবপেজ যখন লোড হয়, ব্রাউজার তখন সেটাকে DOM হিসেবে তৈরী করে নেয়। 
+// The HTML DOM model is constructed as a tree of Objects:
+// আর DOM Model হচ্ছে, একটি স্টাকচার অথবা অবজেক্ট এর একটি স্টাকচার। উদাহরণ (Document>HTML=>[Head,Body], head=>[title>Text], Body[Element>h1,p,...])

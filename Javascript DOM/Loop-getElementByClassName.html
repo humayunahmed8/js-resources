@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM : Loop for getElementByClassName</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Practice 2 CSS */
+        article{
+            border: 1px solid red;
+            border-radius: 5px;
+            margin: 30px;
+            padding: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2 align="center">Exploring DOM</h2>
+    
+    
+
+
+    <!-- Practice 2 DOM -->
+
+    <!-- article*3>h3{article-$}+h4.author{author-$}+p.description>lorem20 -->
+    <article>
+        <h3>article-1</h3>
+        <h4 class="author">author-1</h4>
+        <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque magnam, modi dignissimos tenetur voluptas mollitia adipisci reiciendis quo excepturi totam?</p>
+    </article>
+    <article>
+        <h3>article-2</h3>
+        <h4 class="author">author-2</h4>
+        <p class="description">Eaque error beatae possimus illum tenetur. Non minus, in commodi quod accusamus aliquam. Aliquid consequatur, tempora pariatur quisquam tempore quod.</p>
+    </article>
+    <article>
+        <h3>article-3</h3>
+        <h4 class="author">author-3</h4>
+        <p class="description">Provident iusto quia aut quidem facere odio, tempora optio culpa nemo magni ea ullam quos ratione quibusdam, corporis esse voluptates!</p>
+    </article>
+
+    <script>
+
+        // কিছু তথ্যঃ 
+        //getElementById, querySelector এই দুইটি সবসময় আমাদের যেটা ম্যাচ হবে, সেটা দিবে। সেটাকে সরাসরি আমরা স্টাইল দিতে পারি। 
+        //getElementByClassName,getElementByTagName, querySelectorAll এই তিনটি আমাদের একটা কালেকশন দিবে (HTML Colleciton, NodeList), এগুলোর উপর এবার আমরা লুপ চালিয়ে কিছু একটা করতে পারি। 
+
+        
+        //console.dir(document.title);
+
+        // লুপ চালিয়ে, অবজেক্ট(কালেকশন) এর ভেতর ইনডেক্স অনুযায়ী লেন্থ বের করে, তার প্রত্যেকটি ক্লাসের মধ্যে একটি স্টাইল দেয়া হল। 
+        var author = document.getElementsByClassName('author'); 
+
+        //console.log(author);
+        for(var i = 0; i < author.length; i++){
+            var element = author[i];
+            //console.log(element);
+            console.log(element.innerHTML);
+            element.innerHTML = 'xyz';
+            element.style.backgroundColor = "#ddd";
+            element.style.color = "blue";
+            element.style.padding = "10px";
+        }
+
+
+        // লুপ চালিয়ে, অবজেক্ট(কালেকশন) এর ভেতর ইনডেক্স অনুযায়ী লেন্থ বের করে, তার প্রত্যেকটি ট্যাগের মধ্যে একটি স্টাইল দেয়া হল। 
+        var tagName = document.getElementsByTagName('h3');
+
+        for(var i = 0; i < tagName.length; i++){
+            var element = tagName[i];
+            //console.log(element);
+
+            element.style.backgroundColor = 'tomato';
+        }
+
+        // লুপ চালিয়ে, অবজেক্ট(কালেকশন) এর ভেতর ইনডেক্স অনুযায়ী লেন্থ বের করে, তার প্রত্যেকটি কুয়েরিসিলেক্টরের মধ্যে একটি স্টাইল দেয়া হল। 
+        var querys = document.querySelectorAll('.description');
+
+        for(var i = 0; i < querys.length; i++){
+            var element = querys[i];
+            console.log(element);
+
+            element.style.backgroundColor = 'tomato';
+        }
+
+
+    </script>
+</body>
+</html>

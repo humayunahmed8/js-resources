@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <input type="text" id="theDate">
+    <button id="submitDate">Submit</button>
+
+    <div id="output" class="output">
+
+    </div>
+ 
+    <script>
+            document.getElementById('submitDate').addEventListener('click', function(){
+            const inputBoxValue = document.getElementById('theDate').value; 
+            const currentDate = new Date(inputBoxValue);
+            
+            let convertToDayName = document.getElementById('output').innerText = currentDate.getDay() + 1;
+            
+            if(convertToDayName == 0) {
+                document.getElementById('output').innerText = 'Sunday';
+            }else if(convertToDayName == 1){
+                document.getElementById('output').innerText = 'Monday';
+            }else if(convertToDayName == 2){
+                document.getElementById('output').innerText = 'Tuesday';
+            }else if(convertToDayName == 3){
+                document.getElementById('output').innerText = 'Wednesday';
+            }else if(convertToDayName == 4){
+                document.getElementById('output').innerText = 'Thursday';
+            }else if(convertToDayName == 5){
+                document.getElementById('output').innerText = 'Friday';
+            }else{
+                document.getElementById('output').innerText = 'Saturday';
+            }
+        })
+    </script>
+</body>
+</html>

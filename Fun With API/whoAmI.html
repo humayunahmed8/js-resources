@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Who Am I?</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <style>
+        body{
+            font-family: 'Ubuntu', sans-serif;
+            font-weight: 400;
+        }
+
+        a.refresh {
+            position: absolute;
+            bottom: 15px;
+            right: 0;
+            background: #87BC49;
+            display: inline-block;
+            border-radius: 5px;
+            color: #fff;
+        }
+
+        a.refresh i {
+            font-size: 16px;
+            height: 30px;
+            width: 30px;
+            line-height: 30px;
+            border-radius: 50px;
+        }
+
+        .card {
+            position: relative;
+            padding: 20px 0;
+            width: 100%;
+            background: #fff;
+            border-radius: 3px;
+            box-shadow: 0 0 1px rgb(0 0 0 / 50%);
+            overflow: hidden;
+            text-align: center;
+            z-index: 5;
+        }
+
+        .card:after {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 130px;
+            top: 0;
+            background: #f9f9f9;
+            border-bottom: 1px solid rgba(0, 0, 0, .15);
+            z-index: -1;
+        }
+
+        .details img {
+            width: 150px;
+            border-radius: 50%;
+        }
+
+        div#user_photo_wrapper {
+            position: relative;
+            background: #fff;
+            padding: 5px;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 30px;
+            border: 1px solid rgba(0, 0, 0, .25);
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* div#user_photo_wrapper a.refresh {
+            display: none;
+        } */
+
+        p#user_value {
+            color: #2c2e31;
+            font-size: 32px;
+            margin: 5px;
+            text-transform: capitalize;
+            margin-bottom: 30px;
+        }
+
+        ul#values_list {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        ul#values_list li {
+            display: inline-block;
+            margin-right: 15px;
+            cursor: pointer;
+        }
+
+        ul#values_list li i {
+            font-size: 24px;
+            color: #D9D9D9;
+            transition: 0.3s;
+        }
+
+        body {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        ul#values_list li:last-of-type {
+            margin: 0;
+        }
+
+        ul#values_list li i:hover {
+            color: #87BC49;
+        }
+    </style>
+</head>
+
+<body>
+
+    <img id="userThumbnail" src="" alt="">
+    <h3 id="gender"></h3>
+
+
+    <div class="card">
+        <div class="details">
+            <div class="user_photo horizontal_center" id="user_photo_wrapper">
+                <a onclick="reload()" href="#" class="refresh"><i class="fas fa-sync-alt"></i></a>
+                <img id="user_photo" src="">
+            </div>
+            <p id="user_value" style="text-transform: lowercase;"></p>
+        </div>
+        <ul class="values_list horizontal_center" id="values_list">
+            <li id="UserName">
+                <i class="fas fa-user"></i>
+            </li>
+            <li id="UserEmail">
+                <i class="fas fa-envelope"></i>
+            </li>
+            <li id="UserDOB">
+                <i class="fas fa-calendar-alt"></i>
+            </li>
+            <li id="UserAddress">
+                <i class="fas fa-search-location"></i>
+            </li>
+            <li id="UserPhone">
+                <i class="fas fa-phone"></i>
+            </li>
+        </ul>
+    </div>
+
+
+    <script>
+        fetch('https://randomuser.me/api/')
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                //const userInfo = data.results[0];
+
+                userDetails(data);
+            })
+
+        function userDetails(data) {
+            const userInfo = data.results[0];
+
+            document.getElementById('user_photo').src = userInfo.picture.large;
+
+            document.getElementById('user_value').innerText = `Name: ${userInfo.name.title} ${userInfo.name.first} ${userInfo.name.last} `;
+
+            document.getElementById('UserName').addEventListener('mouseover', function () {
+                document.getElementById('user_value').innerText = `Name: ${userInfo.name.title} ${userInfo.name.first} ${userInfo.name.last} `;
+            })
+
+            document.getElementById('UserEmail').addEventListener('mouseover', function () {
+                document.getElementById('user_value').innerText = `Email: ${userInfo.email}`;
+            })
+
+            document.getElementById('UserDOB').addEventListener('mouseover', function () {
+                document.getElementById('user_value').innerText = `Age: ${userInfo.dob.age}, years`;
+            })
+
+            document.getElementById('UserAddress').addEventListener('mouseover', function () {
+                document.getElementById('user_value').innerText = `Country: ${userInfo.location.country}`;
+            })
+
+            document.getElementById('UserPhone').addEventListener('mouseover', function () {
+                document.getElementById('user_value').innerText = `Phone: ${userInfo.phone}`;
+            })
+        }
+
+        function reload() {
+            reload = location.reload();
+        }
+
+
+
+    </script>
+</body>
+
+</html>

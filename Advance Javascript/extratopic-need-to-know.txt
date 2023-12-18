@@ -1,0 +1,8 @@
+- Javascript Event Loop 
+Youtube     : https://youtu.be/8aGhZQkoFbQ
+Blog (MDN)  : https://developer.mozilla.org/en-US/docs/Web/JavaScript/EventLoop
+
+
+- async and await - 26.8 
+
+- 

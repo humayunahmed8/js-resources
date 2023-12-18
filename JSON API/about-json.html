@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON API</title>
+</head>
+<body>
+
+    <h1>JSON</h1>
+    <h2>Javascript Object Notation</h2>
+
+
+    <script>
+
+        // JSON - Javascript Object Notations 
+        // API - Application Programming Interface 
+
+        // JSON একটা ফরম্যাট, যে ফরম্যাটে মুলত সার্ভার থেকে ডেটা টা আসবে। 
+        // সার্ভার থেকে ডেটা আসবে string আকারে। সেক্ষেত্রে, JSON.parse() করে নিতে হবে।
+        // JSON এর ভেতর কয়েক ধরনের জিনিস থাকে, অবজেক্ট এর প্রপার্টি ও ভ্যালু থাকতে পারে, তারপর Array থাকতে পারে। আবার অবজেক্ট এর ভেতর অবজেক্ট ও থাকতে পারে।  
+
+        const user = {
+            id : 1,
+            name : 'Sukanta',
+            friendsName : ['Rahim', 'Karim', 'Salim'],
+            friendsAge : [10, 12, 18],
+            haveBird : {
+                name : 'Pigeon',
+                age : 2,
+                favFood : 'Beans'
+            }
+        }
+
+        // অবজেক্ট কে JSON এ কনভার্ট করলে, অবজেক্টের প্রপার্টি টা মুলত স্ট্রিং এ কনভার্ট হয়ে যায়, এটাই যাষ্ট চেঞ্জ হয়। 
+        // এর জন্য JSON.stringify() ব্যবহার করতে হয়। 
+
+        const userJSON = JSON.stringify(user); 
+
+        console.log(userJSON); // {"id":1,"name":"Sukanta"}
+
+        // Reverse Way: existing JSON কে, অর্থাৎ stringified JSON কে চাইলে Main JSON এ কনভার্ট করা যায়। 
+        // এটার জন্য ইউজ করতে হয়, JSON.parse()
+
+        const userFromJSON = JSON.parse(userJSON);
+
+        console.log(userFromJSON); // {id: 1, name: "Sukanta"}
+
+        
+
+    </script>
+    
+</body>
+</html>

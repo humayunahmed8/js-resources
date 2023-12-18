@@ -1,0 +1,65 @@
+/* Header and Logo CSS
+=========================== */
+
+
+
+/* Logo CSS */
+.site-logo {
+    text-align: center;
+    padding: 10px 0;
+}
+
+.site-logo img {
+    max-width: 250px;
+}
+
+/* Header CSS */
+
+.main-navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-navbar {
+    background-color: #232F3E;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.main-navbar ul li {
+    display: inline-block;
+}
+
+.main-navbar ul li a {
+    padding: 12px 15px;
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.main-navbar ul li a:hover {
+    background: #100e0e;
+}
+
+.main-navbar ul li a {
+    position: relative;
+    z-index: 1;
+}
+
+.main-navbar ul li a:after {
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 0;
+    background: #FF9800;
+    left: 0;
+    top: 0;
+    transition: 0.3s;
+    z-index: -1;
+}
+
+.main-navbar ul li a:hover:after {
+    width: 100%;
+}

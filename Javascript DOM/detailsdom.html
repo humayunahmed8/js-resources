@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+
+    <h1>Explore The DOM</h1>
+    <a href="#">Links</a>
+
+
+    <script>
+
+        // পুরো ডকুমেন্ট টি চেক করা। 
+        console.dir(document);
+
+        // ডকুমেন্ট টাইপ চেক করা। 
+        console.log(typeof(document)); //object, ডকুমেন্ট টি কে ব্রাউজার মুলত object হিসেবে পাবে। যে অবজেক্ট এর ভিতর কতগুলো প্রপার্টি ও মেথড থাকবে। 
+        
+        // Document Head Object চেক করা।
+        console.log(document.head); // return will inside code of head
+
+        // Document Title Object চেক করা। 
+        console.log(document.title); // title : DOM
+
+        // Document Body Object চেক করা। 
+        console.log(document.body)  // return will inside code of body
+
+        // DOM Manipulate করে ডকুমেন্ট এর টাইটেল চেঞ্জ করার উপায়। 
+        document.title = 'Explore DOM';
+
+        // নির্দিষ্ট কোন এলিমেন্ট কে ও এক্সেস করা যাবে। (এক্সাম্পলঃ এই পেজে কত গুলো links বা <a> আছে তা বের করে দেখানো হল)
+        console.log(document.links);
+
+
+
+
+
+        // পুরো ডকুমেন্ট টি বা HTML Collection টি দেখার জন্য, document.all ব্যবহার করা হচ্ছে। 
+        // এটি যে HTML Collection টি দেখাবে। সেটি অ্যারে এর মত দেখালেও এটা আসলে অ্যারে নয়। 
+        // অ্যারে না হলেও, এগুলোর উপর অ্যারের মত অপারেশন চালানো যাবে, বা ইটারেট করা যাবে লুপের মাধ্যমে। চাইলে, লুপ থ্রু করা যাবে কিংবা ইন্ডেক্স ও ধরা যাবে।
+        console.log(document.all);
+
+        // document.all এর থেকে একটি ইন্ডেক্স কে ধরা হল।
+        console.log(document.all[5]); // <title>Explore DOM</title>
+
+        //যেহেতু অ্যারে এর মত দেখতে। আমরা বলেছি, এখানে লুপ থ্রু করা যাবে। সেরকম একটি উদাহরণ এখানে দেয়া হল।
+        var thisDoc = document.all;
+        for (let i = 0; i < thisDoc.length; i++) {
+            const element = thisDoc[i];
+            console.log(element);
+        }
+
+        // for of Loop দিয়ে ইটারেট করা হল। 
+        for(let element of document.all){
+            console.log(element);
+        }
+
+        // Tips: কখনোই ইনডেক্স ধরে, ডম ম্যানিফুলেট করা যাবেনা। কারণ, ডায়নামাইক কন্টেন্ট পুশ যখন হবে, এসব ইন্ডেক্স চেঞ্জ হয়। 
+        // Ref: https://youtu.be/DZIzsE1_VHY?list=PLHiZ4m8vCp9MJDxMOzhYVuTrO1b5n-Tq_
+
+    </script>
+    
+</body>
+</html>

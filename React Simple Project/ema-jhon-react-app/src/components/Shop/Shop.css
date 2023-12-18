@@ -1,0 +1,67 @@
+/* Shop Component CSS */
+
+.shop-wrapper {
+    display: flex;
+    max-width: 1200px;
+    margin-left: auto;
+}
+
+.shop-product-container {
+    flex-basis: 75%;
+    margin-right: 15px;
+    padding-right: 15px;
+    border-right: 1px solid #d3d3d3;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.shop-cart-container {
+    flex-basis: 25%;
+    margin-left: 15px;
+}
+
+
+/*  Place order Button */
+
+.place-order-button button {
+    border: 0;
+    background: #ff9800;
+    color: #232f3e;
+    font-size: 14px;
+    padding: 8px 20px;
+    display: inline-block;
+    border-radius: 5px;
+    position: relative;
+    z-index: 1;
+}
+
+.place-order-button {
+    margin-top: 20px;
+}
+
+.place-order-button button:after {
+    position: absolute;
+    content: "";
+    height: 100%;
+    width: 0;
+    background: #232f3e;
+    left: 0;
+    top: 0;
+    border-radius: 5px 0 0 5px;
+    transition: 0.3s;
+    z-index: -1;
+}
+
+.place-order-button button:hover {
+    color: #fff;
+}
+
+.place-order-button button {
+    transition: 0.3s;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.place-order-button button:hover:after {
+    width: 100%;
+}

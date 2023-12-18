@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM : SetColor by getElementById</title>
+</head>
+<body>
+    
+    <!-- Practice 1 DOM -->
+
+
+    <h2 align="center">Exploring DOM</h2>
+    
+    <main>
+        <section>
+            <h1>Hellow Bangladesh</h1>
+            <p id="test">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Recusandae, enim.</p>
+        </section>
+    </main>
+
+    <script>
+
+        // কিছু তথ্যঃ 
+        //getElementById, querySelector এই দুইটি সবসময় আমাদের যেটা ম্যাচ হবে, সেটা দিবে। সেটাকে সরাসরি আমরা স্টাইল দিতে পারি। 
+        //getElementByClassName,getElementByTagName, querySelectorAll এই তিনটি আমাদের একটা কালেকশন দিবে (HTML Colleciton, NodeList), এগুলোর উপর এবার আমরা লুপ চালিয়ে কিছু একটা করতে পারি। 
+
+        // Practice 1
+        var setColor = document.getElementById('test');
+        setColor.style.color = 'red';
+    </script>
+
+</body>
+</html>
